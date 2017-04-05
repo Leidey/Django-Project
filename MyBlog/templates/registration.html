@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+{% block content %}
+
+
+<div class="container">
+    <div class='row'>
+        <div class="col-md-4 col-md-offset-4">
+
+            <center><h1 style="color:MidnightBlue ;"><strong>Sign Up</strong></h1></center>
+            <hr/>
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Register</h3>
+                </div>
+                <div class="panel-body">
+                    <form method="post" action="{% url 'myapp:list' %}">{% csrf_token %}
+                        <p class="bs-component">
+                            <table>
+                                <tr>
+                                    <td>{{ form.username.label_tag }}<hr/></td>
+                                    <td>{{ form.username }} <hr/></td>
+                                </tr>
+
+                                <!--<tr>-->
+                                    <!--<td>{{ form.as_p }}</td>-->
+                                <!--</tr>-->
+                                <tr>
+                                    <td>{{ form.email.label_tag }}<hr/></td>
+                                    <td>{{ form.email }}<hr/></td>
+                                </tr>
+                                <tr>
+                                    <td>{{ form.password1.label_tag }}<hr/></td>
+                                    <td>{{ form.password1 }}<hr/></td>
+                                </tr>
+                                <tr>
+                                    <td>{{ form.password2.label_tag }}<hr/></td>
+                                    <td>{{ form.password2 }}<hr/></td>
+                                </tr>
+                            </table>
+                        </p>
+                        <p class="bs-component">
+                            <center>
+                                <!--<input class="btn btn-success btn-sm" type="submit" action="{% url 'myapp:list' %}" value="Register" />-->
+                                <input class='btn btn-block btn-primary' type="submit" value="{% trans 'Register' %}" />
+                            </center>
+                        </p>
+                        <input type="hidden" name="next" value="{{ next }}" />
+                    </form>
+                </div>
+                <!--<form method="post" action=".">{% csrf_token %}-->
+                    <!--{{ form.as_p }}-->
+                    <!--<input class='btn btn-block btn-primary' type="submit" value="{% trans 'Register' %}" />-->
+                    <!--<input type="hidden" name="next" value="{{ next }}" />-->
+                <!--</form>-->
+            <!--<hr/>-->
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="jumbotron">
+            <h1>Hey!</h1>
+            <h3>You have successfully logged in.</h3>
+            <p>You are on your Dashboard</p>
+            <a href="{% url 'myapp:list' %}">Go to Blog</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

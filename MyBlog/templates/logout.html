@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<h2>You are not logged out, plz firstly log out from administration page! </h2>
+{% else %}
+<p class='text-align-center lead'>You have successfully signed out.</p><p class='text-align-center lead'><a href="{% url 'myapp:login' %}">Log in again</a></p></p>
+{% endif %}
+{% endblock %}
