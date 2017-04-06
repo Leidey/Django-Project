@@ -39,11 +39,11 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated %}
-                <li><a href="/myapp/logout" style="color:Orange;"><b>Sign out</b></a></li>
+                <li><a href="{% url 'logout' %}" style="color:Orange;"><b>Sign out</b></a></li>
                 {% else %}
-                <li><a href="{% url 'myapp:login' %}" style="color:Orange;"><b>Sign in</b></a></li>
+                <li><a href="{% url 'login' %}" style="color:Orange;"><b>Sign in</b></a></li>
                 <li><a href="#" style="color:Orange;"><b>|</b></a></li>
-                <li><a href="{% url 'myapp:registration' %}" style="color:Orange;"><b>Sign up</b></a></li>
+                <li><a href="{% url 'user_registration'%}" style="color:Orange;"><b>Sign up</b></a></li>
                 {% endif %}
             </ul>
 

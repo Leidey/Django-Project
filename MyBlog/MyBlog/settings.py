@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'myapp',
+    'accounts',
     #'myapp.apps.MyappConfig',
 ]
 
@@ -140,6 +141,6 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 
-LOGIN_REDIRECT_URL = '/'  # It means home view
+LOGIN_REDIRECT_URL = '/myapp/success'  # It means home view
 # django.contrib.auth.LOGIN_URL = '/'
 

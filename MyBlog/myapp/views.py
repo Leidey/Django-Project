@@ -107,7 +107,9 @@ def logout(request):
 # def logout_page(request):
 #     logout(request)
 #     return HttpResponseRedirect('/login')
-@login_required(login_url='/myapp/login/')
+
+
+@login_required(login_url='/login/')
 def success(request):
     return render(request,"success.html",{})
 
@@ -173,7 +175,7 @@ def login(request):
 #     return render(request,"login.html",context)
 
 
-@login_required(login_url='/myapp/login/')
+@login_required(login_url='/login/')
 def post_list(request):
     today = timezone.now().date()
     queryset_list = Post.objects.active()  # .order_by("-timestamp")
