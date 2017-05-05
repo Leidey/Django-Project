@@ -38,8 +38,8 @@ urlpatterns = [
     # url(r'^logout/$', views.logout, {'next_page': '/login'}, name='logout'),
     #url(r'^login/$', login, {'template_name': 'login.html', 'authentication_form': LoginForm},name='login'),
     # url(r'^logout/$', logout, {'next_page': '/login'}, name='logout'),
-
-    url(r'^$', TemplateView.as_view(template_name='success_register.html'), name='home'),
+    url(r'^$', TemplateView.as_view(template_name='out.html')),
+    url(r'^registered/$', TemplateView.as_view(template_name='success_register.html'), name='home'),
     url(r'^new-user/$', UserRegistrationView.as_view(), name='user_registration'),
     url(r'^login/$', login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', logout, {'next_page': '/login/'}, name='logout'),

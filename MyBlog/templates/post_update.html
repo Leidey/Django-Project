@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
+<br />
+<br />
+<br />
+
 <div class='col-sm-6 col-sm-offset-3'>
-<h1 style="color:MidnightBlue ;"><strong>Edit Post</strong></h1><hr/>
+<h1 style="color:MidnightBlue; font-family:FreeMono, monospace;"><strong>Edit Post</strong></h1><hr/>
 
 <form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
 {{ form.as_p }}

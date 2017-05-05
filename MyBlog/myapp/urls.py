@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.contrib import admin
 
+
 #from . import views
 from .views import (
     post_list,
@@ -16,12 +17,14 @@ from .views import (
     registration,
     logout_page,
     success,
+    archive,
     )
 
 
 urlpatterns = [
     url(r'^$',post_list, name='list'),
     url(r'^home/$',home, name='home'),
+    url(r'^archive/$',archive, name='archive'),
     url(r'^login/$',login, name='login'),
     url(r'^logout/$',logout, name='logout'),
     url(r'^logout_page/$',logout_page, name='logout_page'),
@@ -33,5 +36,5 @@ urlpatterns = [
     url(r'^(?P<slug>[\w-]+)/$',post_detail, name='detail'),
     url(r'^(?P<slug>[\w-]+)/edit/$',post_update, name='update'),
     url(r'^(?P<slug>[\w-]+)/delete/$',post_delete, name='delete'),
-
+   
 ]

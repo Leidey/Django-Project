@@ -13,6 +13,11 @@ from django.utils.text import slugify
 
 from django.contrib.auth.models import User
 
+
+from django.db import models
+from location_field.models.plain import PlainLocationField
+
+
 class PostManager(models.Manager):
     def active(self, *args, **kwargs):
         # Post.objects.all() = super(PostManager, self).all()
@@ -89,3 +94,7 @@ pre_save.connect(pre_save_post_receiver, sender=Post)
 #     company = models.CharField(max_length=30)
 #     user = models.ForeignKey(User, unique=True)
 
+
+# class Place(models.Model):
+#     city = models.CharField(max_length=255)
+#     location = PlainLocationField(based_fields=['city'], zoom=7)

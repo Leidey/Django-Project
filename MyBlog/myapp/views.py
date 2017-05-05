@@ -1,8 +1,9 @@
+from math import e
 from urllib.parse import quote_plus
 
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger, InvalidPage
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.utils import timezone
@@ -29,6 +30,12 @@ from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
+
+
+from django.template import loader, Context
+from django.http import HttpResponse
+from .models import Post
+
 
 
 
@@ -192,7 +199,7 @@ def post_list(request):
             Q(user__first_name__icontains=query) |
             Q(user__last_name__icontains=query)
         ).distinct()
-    paginator = Paginator(queryset_list, 4)  # Show 8 contacts per page
+    paginator = Paginator(queryset_list, 10)  # Show 8 contacts per page
     page_request_var = "page"
     page = request.GET.get(page_request_var)
     try:
@@ -325,4 +332,35 @@ def logout_page(request):
 #         {'user': request.user}
 #     )
 
+
+#
+# logger = login_required('myapp.views')
+#
+# def archive(request):
+#     try:
+#         year = request.GET.get('year', None)
+#         mouth = request.GET.get('mouth', None)
+#         article_list = Post.objects.filter(
+#             date_publish__icontains=year + '-' + mouth)
+#         article_list = getPage(request, article_list)
+#     except (Exception, e):
+#         logger.error(e)
+#     return render(request, 'archive.html', locals())
+#
+#
+# def getPage(request, article_list):
+#     paginator = Paginator(article_list, 5)
+#     try:
+#         page = int(request.GET.get('page', 1))
+#         article_list = paginator.page(page)
+#     except (EmptyPage, InvalidPage, PageNotAnInteger):
+#         article_list = paginator.page(1)
+#     return article_list
+#
+
+def archive(request):
+    posts = Post.objects.all()
+    t = loader.get_template("archive.html")
+    c = Context({ 'posts': posts })
+    return HttpResponse(t.render(c))
 

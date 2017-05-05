@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'myapp',
     'accounts',
     #'myapp.apps.MyappConfig',
+    'location_field.apps.DefaultConfig'
 ]
 
 

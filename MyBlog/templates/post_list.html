@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
+<br />
+<br />
+<br />
 
 <div class='col-sm-8 col-sm-offset-2'>
-    <center><h1 style="color:MidnightBlue;"><strong> WELCOME TO 7TH BLOG</strong></h1><hr/></center>
+    <center>
+        <h1 style="color:MidnightBlue; font-family:FreeMono, monospace;">
+            <strong> WELCOME TO 7TH BLOG</strong>
+        </h1><hr/>
+    </center>
 
     {% for obj in object_list %}
     <div class="row">
@@ -104,10 +111,31 @@
 
 </div>
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <div class="navbar pull-right" style="color:RoyalBlue;">
     <h3> Blog Archive</h3>
 
-    <p align="right">Blog Archive</p>
+    <!--<p align="right">Posts</p>-->
 <hr/>
+
+    <!--<a href="{% url 'myapp:archive' %}">Archive</a>  <br/> -->
+
+    {% for obj in object_list %}
+    <div class="caption">
+        <ul>
+            <li><h6 style="color:black">{{ obj.publish }}</h6></li>
+            <a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a>
+        </ul>
+    </div>
+    {% endfor %}
 </div>
 {% endblock content %}
