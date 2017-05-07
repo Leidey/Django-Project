@@ -4,6 +4,8 @@
 <br />
 <br />
 
+
+
 <div class='col-sm-8 col-sm-offset-2'>
     <center>
         <h1 style="color:MidnightBlue; font-family:FreeMono, monospace;">
@@ -107,20 +109,21 @@
             </ul>
         </nav>
 
-
-
 </div>
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<div class="navbar pull-right" style="color:RoyalBlue;">
+    <h3> Vote ?</h3>
+<hr/>
+    <p style="color:black;">Plz Join Our Polls and Vote!</p>
+    <a href="{%url 'polls:index' %}">&#8618; Questionnary </a>
+</div>
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
 <div class="navbar pull-right" style="color:RoyalBlue;">
     <h3> Blog Archive</h3>
 
@@ -131,11 +134,12 @@
 
     {% for obj in object_list %}
     <div class="caption">
-        <ul>
-            <li><h6 style="color:black">{{ obj.publish }}</h6></li>
-            <a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a>
+        <ul class="nav nav-pills nav-stacked">
+            <h6 style="color:black">- {{ obj.publish }}</h6>
+            <a href='{{ obj.get_absolute_url }}'>&nbsp&nbsp&#8627;{{ obj.title }}</a>
         </ul>
     </div>
     {% endfor %}
 </div>
+
 {% endblock content %}

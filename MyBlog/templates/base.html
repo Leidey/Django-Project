@@ -34,7 +34,7 @@
                 <!--<li><a href="{% url 'myapp:list' %}">Home</a></li>-->
 
             <!--<p class="navbar-text" style="color:Orange;"><b>BLOG 7EL</b></p>-->
-            <li><a href="{% url 'myapp:list' %}" style="color:RoyalBlue;"><b>Home</b></a></li>
+            <li><a href="{% url 'myapp:list' %}" style="color:RoyalBlue;"><b>&#9776; Home</b></a></li>
             <li><a href="{% url 'myapp:about' %}" style="color:RoyalBlue;"><b>About</b></a></li>
             <li><a href="{% url 'myapp:contact' %}" style="color:RoyalBlue;"><b>Contact Me</b></a></li>
             <!--<p class="navbar-text"><a href="{% url 'myapp:about' %}"><b>About</b></a></p>-->
@@ -63,9 +63,10 @@
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                     <input type="text" name="q" class="form-control" style="font-style:italic;" placeholder="Search Posts" value="{{ request.GET.q }}">
+                    <button type="submit" class="btn btn-default">Submit</button>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
             </form>
+
         </div>
     </div>
 

@@ -34,6 +34,7 @@ from myapp.forms import LoginForm
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^myapp/', include("myapp.urls", namespace='myapp')),
+    url(r'^polls/', include("polls.urls", namespace='polls')),
     # url(r'^login/$', views.login, {'template_name': 'login.html', 'authentication_form': LoginForm},name='login'),
     # url(r'^logout/$', views.logout, {'next_page': '/login'}, name='logout'),
     #url(r'^login/$', login, {'template_name': 'login.html', 'authentication_form': LoginForm},name='login'),

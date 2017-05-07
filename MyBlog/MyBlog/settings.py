@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'myapp',
     'accounts',
+    'polls',
     #'myapp.apps.MyappConfig',
     'location_field.apps.DefaultConfig'
 ]
