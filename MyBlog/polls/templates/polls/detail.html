@@ -5,21 +5,62 @@
 <br />
 <br />
 <br />
+<br />
+
+    <style>
+        body{
+          background: url('{% static "img/cream.jpg" %}');
+          background-size: cover;
+        }
+    </style>
+
+<center><h2 style="color:MidnightBlue"><u><b>{{ question.question_text }}</b></u> &#9745;&#9746;</h2></center>
+
+<style>
+table {
+    border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+     -moz-border-radius:6px;
+}
+td, th {
+    border-left:solid black 1px;
+    border-top:solid black 1px;
+    padding: 15px;
+}
+th {
+    border-top: none;
+}
+td:first-child, th:first-child {
+     border-left: none;
+}
+table#t01 {
+    width: 100%;
+    background-color: #ffcccc;
+}
+</style>
+<center>
+
+{% if error_message %}
+    <font color="red"><p><strong>{{ error_message }}</strong></p></font>
+{% endif %}
 
 
-<h1>{{ question.question_text }}</h1>
-
-{% if error_message %}<font color="red"><p><strong>{{ error_message }}</strong></p></font>{% endif %}
-
-<h3><form action="{% url 'polls:vote' question.id %}" method="post">
+<h4><form action="{% url 'polls:vote' question.id %}" method="post">
+<table style="width:100%" id="t01">
 {% csrf_token %}
 {% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+    <tr>
+      <td><input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+          <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label></td>
+    </tr>
 {% endfor %}
-<input type="submit" value="Vote" />
-</form></h3>
-<a href="{% url 'polls:results' question.id %}">Results</a>
-<a href="{% url 'polls:index' %}">Back</a>
+</table>
+    <br>
+<a class="btn btn-default" href="{% url 'polls:index' %}">Back</a>
+<input class='btn btn-warning' type="submit" value="Vote" />
+<a class="btn btn-danger" href="{% url 'polls:results' question.id %}">Result</a>
+</form></h4>
 
+</center>
 {% endblock content%}

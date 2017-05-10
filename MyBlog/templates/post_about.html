@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 <!--{% load urlify %}-->
 
 
@@ -6,12 +7,19 @@
 <br />
 <br />
 <br />
+
+    <style>
+        body{
+          background: url('{% static "img/cream.jpg" %}');
+          background-size: cover;
+        }
+    </style>
+
 <div class='col-sm-6 col-sm-offset-3 ' >
-    <center><h1 style="color:MidnightBlue; font-family:FreeMono, monospace;"><strong>About Me</strong></h1><hr/></center>
+    <center><h1 style="color:MidnightBlue; font-family:FreeMono, monospace;"><strong>About Me</strong></h1><hr style="border: 1px outset #191970;"></center>
     <p>This is about us. This is about us.This is about us.This is about us.This is about us. This is about us.This is about us.This is about us.</p>
     <p>This is about us. This is about us.This is about us.This is about us.This is about us. This is about us.This is about us.This is about us.</p>
     <p>This is about us. This is about us.This is about us.This is about us.This is about us. This is about us.This is about us.This is about us.</p>
     </div>
-
 
 {% endblock content %}

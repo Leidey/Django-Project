@@ -1,10 +1,19 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load staticfiles %}
 
 {% block content %}
 <br />
 <br />
 <br />
+
+    <style>
+        body{
+          background: url('{% static "img/cream.jpg" %}');
+          background-size: cover;
+        }
+    </style>
+
 
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
@@ -23,8 +32,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <center><h1 style="color:MidnightBlue ;"><strong>Sign In</strong></h1></center>
-            <hr/>
+            <center><h1 style="color:MidnightBlue ;"><strong>&#9886; Sign In &#9887;</strong></h1></center>
+            <hr style="border: 1px outset #191970;">
             <div class="login-panel panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Please Log In</h3>
@@ -51,7 +60,7 @@
                     </form>
                 </div>
             </div>
-            <hr/>
+            <hr style="border: 1px outset #191970;">
             <a href="{% url 'user_registration' %}">Register?</a>
         </div>
     </div>

@@ -7,19 +7,53 @@
 <br />
 <br />
 <br />
-<br />
-<br />
+
+
+    <style>
+        body{
+          background: url('{% static "img/cream.jpg" %}');
+          background-size: cover;
+        }
+    </style>
+
+<style>
+table {
+    border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+     -moz-border-radius:6px;
+}
+td, th {
+    border-left:solid black 1px;
+    border-top:solid black 1px;
+    padding: 15px;
+}
+td:first-child, th:first-child {
+     border-left: none;
+}
+table#t01 {
+    width: 100%;
+    background-color: #ffcccc;
+}
+</style>
 
 {% if latest_question_list %}
-    <ul>
 
-    <h1><font color="red"><u>QUESTIONS</u></font></h1>
-
-    {% for question in latest_question_list %}
-        <font color="red"><li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li></font>
-    {% endfor %}
-    </ul>
+<center><h1><font color="MidnightBlue">&#9742; <u><b>QUESTIONS</b></u> &#9743;</font></h1></center>
+<br>
+<table style="width:100%" id="t01">
+{% for question in latest_question_list %}
+  <tr>
+    <td><center><li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li></center></td>
+  </tr>
+{% endfor %}
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+</table>
+
+
+<br>
+
+<center><a class="btn btn-default" href="{% url 'myapp:list' %}">Back to Blog</a></center>
 {% endblock content%}

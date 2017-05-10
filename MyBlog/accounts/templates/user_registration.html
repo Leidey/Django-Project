@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load staticfiles %}
 
 {% block content %}
 <!--<h1>Create New User</h1>-->
@@ -10,11 +11,19 @@
 <br />
 <br />
 <br />
+
+    <style>
+        body{
+          background: url('{% static "img/cream.jpg" %}');
+          background-size: cover;
+        }
+    </style>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <center><h1 style="color:MidnightBlue ;"><strong>Sign Up</strong></h1></center>
-            <hr/>
+            <center><h1 style="color:MidnightBlue ;"><strong>&#9834;&#9836; Sign Up &#9836;&#9834;</strong></h1></center>
+            <hr style="border: 1px outset #191970;">
             <div class="login-panel panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Please Create New User</h3>
@@ -44,7 +53,7 @@
                     </form>
                 </div>
             </div>
-            <hr/>
+            <hr style="border: 1px outset #191970;">
         </div>
     </div>
 </div>

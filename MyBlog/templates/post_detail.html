@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% load urlify %}
 
 {% block head_title %}
@@ -12,6 +13,14 @@
 <br />
 <br />
 <br />
+
+    <style>
+        body{
+          background: url('{% static "img/cream.jpg" %}');
+          background-size: cover;
+        }
+    </style>
+
 <div class='col-sm-6 col-sm-offset-3'>
     {% if instance.image %}
     <img src='{{ instance.image.url }}' class='img-responsive' />

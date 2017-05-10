@@ -6,8 +6,28 @@
 <br />
 <br />
 <br />
-<div class="container">
-    <div class="row">
+
+<!--<div class="container">{% load staticfiles %}-->
+		<!--<img src="{% static 'img/the-bridge.css' %}" class="img-responsive">-->
+<!--</div>-->
+
+
+<!--<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />-->
+<style>
+    body{
+
+        background-image: url('{% static "img/beach.jpg" %}') ;
+
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+</style>
+
+
+<div class="navbar">
+    <div class="row" >
         <div class="jumbotron">
             <h1>Hey!</h1>
             <h3>Welcome to my blog</h3>
@@ -16,4 +36,6 @@
         </div>
     </div>
 </div>
+
 {% endblock %}
+

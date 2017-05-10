@@ -1,16 +1,24 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+
+
 {% block content %}
 <br />
 <br />
 <br />
 
-
+    <style>
+        body{
+            background: url('{% static "img/cream.jpg" %}');
+            background-size: cover;
+        }
+    </style>
 
 <div class='col-sm-8 col-sm-offset-2'>
     <center>
         <h1 style="color:MidnightBlue; font-family:FreeMono, monospace;">
-            <strong> WELCOME TO 7TH BLOG</strong>
-        </h1><hr/>
+            <strong>&#9733; WELCOME TO 7TH BLOG &#9733;</strong>
+        </h1><hr style="border: 1px outset #191970;">
     </center>
 
     {% for obj in object_list %}
@@ -115,20 +123,18 @@
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-<div class="navbar pull-right" style="color:RoyalBlue;">
-    <h3> Vote ?</h3>
-<hr/>
-    <p style="color:black;">Plz Join Our Polls and Vote!</p>
-    <a href="{%url 'polls:index' %}">&#8618; Questionnary </a>
+<div class="navbar pull-right" style="color:MidnightBlue;">
+        <h3>&#9680; Blog Polls &#9681;</h3><hr style="border: 1px outset #191970;">
+        <p style="color:black;">Plz Vote For Our Polls</p>
+        <a href="{%url 'polls:index' %}">&#8618; Questionnaire </a>
 </div>
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-<div class="navbar pull-right" style="color:RoyalBlue;">
-    <h3> Blog Archive</h3>
-
+<div class="navbar pull-right" style="color:MidnightBlue;">
+    <h3>&#9851; Blog Archive</h3>
+    <hr style="border: 1px outset #191970;">
     <!--<p align="right">Posts</p>-->
-<hr/>
 
     <!--<a href="{% url 'myapp:archive' %}">Archive</a>  <br/> -->
 

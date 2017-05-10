@@ -1,17 +1,63 @@
 {% extends "base.html" %}
+{% load static%}
 {% block content%}
 <br />
 <br />
 <br />
-<h1>{{ question.question_text }}</h1>
+<br />
 
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
-</ul>
+    <style>
+        body{
+          background: url('{% static "img/cream.jpg" %}');
+          background-size: cover;
+        }
+    </style>
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
-<a href="{% url 'polls:index' %}">Back to Questions</a>
+
+    <center><h1><b>&#8512; <u>Results of Survey</b></u></h1></center>
+
+<style>
+table {
+    border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+     -moz-border-radius:6px;
+}
+td, th {
+    border-left:solid black 1px;
+    border-top:solid black 1px;
+    padding: 15px;
+}
+td:first-child, th:first-child {
+     border-left: none;
+}
+table#t01 {
+    width: 100%;
+    background-color: #ffcccc;
+}
+</style>
+
+<center>
+<table style="width:100%" id="t01">
+    <tr>
+    <th><h4><u><b>Question</b></u>: {{ question.question_text }}</h4></th>
+    <th><h4><b>Result</b></h4></th>
+    </tr>
+    <ul>
+    {% for choice in question.choice_set.all %}
+        <tr>
+        <td><li>{{ choice.choice_text }} </li></td>
+        <td>{{ choice.votes }} vote{{ choice.votes|pluralize }}</td>
+        </tr>
+    {% endfor %}
+    </ul>
+</table>
+<br><b>
+    <a class="btn btn-info" href="{% url 'myapp:list' %}">Back to Blog</a>
+    <a class="btn btn-default" href="{% url 'polls:index' %}">Back to Questions</a>
+    <a class="btn btn-warning" href="{% url 'polls:detail' question.id %}">Vote again?</a>
+    <br/></b>
+</center>
 
 {% endblock content%}
+

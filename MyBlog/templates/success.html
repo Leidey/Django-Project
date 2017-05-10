@@ -6,13 +6,26 @@
 <br />
 <br />
 <br />
-<div class="container">
+<style>
+    body{
+
+        background-image: url('{% static "img/beach.jpg" %}') ;
+
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+</style>
+
+
+<div class="navbar">
     <div class="row">
         <div class="jumbotron">
-            <h1>Hey {{ user }}!</h1>
+            <h1>Welcome {{ user }}!</h1>
             <!--<h3>You have successfully logged in.</h3>-->
             <p>You are on your Dashboard.</p>
-            <a href="{% url 'myapp:list' %}">Go to Blog</a>
+            <a href="{% url 'myapp:list' %}"><u>Move on 7th Blog</u></a>
         </div>
     </div>
 </div>
