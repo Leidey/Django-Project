@@ -9,13 +9,21 @@
 <br />
 
 
+    <!--<style>-->
+        <!--body{-->
+          <!--background: url('{% static "img/cream.jpg" %}');-->
+          <!--background-size: cover;-->
+        <!--}-->
+    <!--</style>-->
     <style>
         body{
-          background: url('{% static "img/cream.jpg" %}');
-          background-size: cover;
+            background: url('{% static "img/unnamed.jpg" %}') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
     </style>
-
 <style>
 table {
     border-collapse:separate;
@@ -33,18 +41,25 @@ td:first-child, th:first-child {
 }
 table#t01 {
     width: 100%;
-    background-color: #ffcccc;
+    background-color: rgba(0, 0, 0, 0.5);
 }
+.jumbotron {
+           background: rgb(0, 0, 0);
+           background: rgba(0, 0, 0, 0.5);
+        }
 </style>
 
 {% if latest_question_list %}
-
-<center><h1><font color="MidnightBlue">&#9742; <u><b>QUESTIONS</b></u> &#9743;</font></h1></center>
+<div class="jumbotron">
+    <div class="container">
+        <center><h2><font color="#FFA500">&#8681; &#9742; <u><b>QUESTIONS</b></u> &#9743; &#8681;</font></h2></center>
+    </div>
+</div>
 <br>
-<table style="width:100%" id="t01">
+<table style="color:#FFA500; width:100%" id="t01">
 {% for question in latest_question_list %}
   <tr>
-    <td><center><li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li></center></td>
+    <td><center><li><a href="{% url 'polls:detail' question.id %}"><font style="color: white;">{{ question.question_text }}</font></a></li></center></td>
   </tr>
 {% endfor %}
 {% else %}

@@ -9,22 +9,27 @@
 <style>
     body{
 
-        background-image: url('{% static "img/beach.jpg" %}') ;
+        background-image: url('{% static "img/unnamed.jpg" %}') ;
 
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
     }
+    .jumbotron {
+           background: rgb(0, 0, 0);
+           background: rgba(0, 0, 0, 0.5);
+        }
 </style>
 
 
 <div class="navbar">
     <div class="row">
         <div class="jumbotron">
-            <h1>Welcome {{ user }}!</h1>
+            <h1 style="color:#FFA500">Welcome {{ user }}!</h1>
             <!--<h3>You have successfully logged in.</h3>-->
-            <p>You are on your Dashboard.</p>
+            <p style="color:white">You are on your Dashboard.</p>
+            <b style="color:white">&#8658;</b>
             <a href="{% url 'myapp:list' %}"><u>Move on 7th Blog</u></a>
         </div>
     </div>

@@ -6,15 +6,21 @@
 <br />
 <br />
 
+    <!--<style>-->
+        <!--body{-->
+          <!--background: url('{% static "img/cream.jpg" %}');-->
+          <!--background-size: cover;-->
+        <!--}-->
+    <!--</style>-->
     <style>
         body{
-          background: url('{% static "img/cream.jpg" %}');
-          background-size: cover;
+            background: url('{% static "img/unnamed.jpg" %}') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
     </style>
-
-
-    <center><h1><b>&#8512; <u>Results of Survey</b></u></h1></center>
 
 <style>
 table {
@@ -33,21 +39,31 @@ td:first-child, th:first-child {
 }
 table#t01 {
     width: 100%;
-    background-color: #ffcccc;
+    background-color: rgba(0, 0, 0, 0.5);
 }
+.jumbotron {
+           background: rgb(0, 0, 0);
+           background: rgba(0, 0, 0, 0.5);
+        }
 </style>
 
+<div class="jumbotron">
+    <div class="container">
+        <center><h3 style="color:#FFA500;"><b>&#8512; <u>Results of Survey</u></b></u></h3></center>
+    </div>
+</div>
+
 <center>
-<table style="width:100%" id="t01">
-    <tr>
-    <th><h4><u><b>Question</b></u>: {{ question.question_text }}</h4></th>
-    <th><h4><b>Result</b></h4></th>
+<table style="color:#FFA500; width:100%" id="t01">
+    <tr>&nbsp;&nbsp;
+    <th><h4><u><b>Question</b></u>: <font style="color:white;">{{ question.question_text }}</font></h4></th>
+    <th><h4><b><u>Result</u></b></h4></th>
     </tr>
     <ul>
     {% for choice in question.choice_set.all %}
         <tr>
-        <td><li>{{ choice.choice_text }} </li></td>
-        <td>{{ choice.votes }} vote{{ choice.votes|pluralize }}</td>
+        <td><li><font style="color:white;">{{ choice.choice_text }} </font></li></td>
+        <td><font style="color:white;">{{ choice.votes }} vote{{ choice.votes|pluralize }}</font></td>
         </tr>
     {% endfor %}
     </ul>

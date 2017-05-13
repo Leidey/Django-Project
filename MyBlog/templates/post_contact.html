@@ -7,10 +7,23 @@
 <br />
 
 
+    <!--<style>-->
+        <!--body{-->
+          <!--background: url('{% static "img/cream.jpg" %}');-->
+          <!--background-size: cover;-->
+        <!--}-->
+    <!--</style>-->
     <style>
         body{
-          background: url('{% static "img/cream.jpg" %}');
-          background-size: cover;
+            background: url('{% static "img/unnamed.jpg" %}') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .jumbotron {
+           background: rgb(0, 0, 0);
+           background: rgba(0, 0, 0, 0.5);
         }
     </style>
  <style type = "text/css">
@@ -18,21 +31,25 @@
   font-family: "Times New Roman Bold Italic";
   }
  </style>
-<div class='col-sm-6 col-sm-offset-3' >
-    <center><h1 style="color:MidnightBlue; font-family:FreeMono, monospace;"><strong>&#9876; Contact Me &#9876;</strong></h1><hr style="border: 1px outset #191970;"></center>
-    <h3>
-        <p>Have a question about starting a blog?</p>
-        <p>Want to interview me for your own blog?</p>
-        <p>Feel free to drop me an email at <u><i>l5212009@std.yildiz.com.tr</i></u> and I’ll be happy to help.</p>
-        <p>You can also follow me on <a href="https://twitter.com/tunahan_7el">Twitter</a> or <a href="https://www.facebook.com/public/Tunahan-Yediel">Facebook!</a>
+<br>
+    <div class="jumbotron">
+        <div class="container">
+            <center><h1 style="color:#FFA500; font-family:FreeMono, monospace;"><b>&#9876; Contact Me &#9876;</b></h1><hr style="border: 1px outset #ffab00;"></center>
+            <h3 style="color:white;">
+                <p>Have a question about starting a blog?</p>
+                <p>Want to interview me for your own blog?</p>
+                <p>Feel free to drop me an email at <u><i>l5212009@std.yildiz.com.tr</i></u> and I’ll be happy to help.</p>
+                <p>You can also follow me on <a href="https://twitter.com/tunahan_7el">Twitter</a> or <a href="https://www.facebook.com/public/Tunahan-Yediel">Facebook!</a>
 
 
-        </p>
+                </p>
 
 
 
-    </h3>
-</div>
+            </h3>
+        </div>
+    </div>
+
 
 
 {% endblock content %}

@@ -7,14 +7,22 @@
 <br />
 <br />
 
+    <!--<style>-->
+        <!--body{-->
+          <!--background: url('{% static "img/cream.jpg" %}');-->
+          <!--background-size: cover;-->
+        <!--}-->
+    <!--</style>-->
+
     <style>
         body{
-          background: url('{% static "img/cream.jpg" %}');
-          background-size: cover;
+            background: url('{% static "img/unnamed.jpg" %}') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
     </style>
-
-<center><h2 style="color:MidnightBlue"><u><b>{{ question.question_text }}</b></u> &#9745;&#9746;</h2></center>
 
 <style>
 table {
@@ -36,9 +44,22 @@ td:first-child, th:first-child {
 }
 table#t01 {
     width: 100%;
-    background-color: #ffcccc;
+    background-color: rgba(0, 0, 0, 0.5);
 }
+.jumbotron {
+           background: rgb(0, 0, 0);
+           background: rgba(0, 0, 0, 0.5);
+        }
+
 </style>
+
+<div class="jumbotron">
+    <div class="container">
+        <center><h3 style="color:#FFA500">&#9745;&#9746; <u><b>{{ question.question_text }}</b></u> &#8628;</h3></center>
+    </div>
+</div>
+
+
 <center>
 
 {% if error_message %}
@@ -50,9 +71,9 @@ table#t01 {
 <table style="width:100%" id="t01">
 {% csrf_token %}
 {% for choice in question.choice_set.all %}
-    <tr>
+    <tr>&nbsp;&nbsp;
       <td><input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-          <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label></td>
+          <label for="choice{{ forloop.counter }}"><font style="color:white;">{{ choice.choice_text }}</font></label></td>
     </tr>
 {% endfor %}
 </table>

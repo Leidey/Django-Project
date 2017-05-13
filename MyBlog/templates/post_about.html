@@ -8,10 +8,18 @@
 <br />
 <br />
 
+
     <style>
         body{
-          background: url('{% static "img/cream.jpg" %}');
-          background-size: cover;
+            background: url('{% static "img/unnamed.jpg" %}') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .jumbotron {
+           background: rgb(0, 0, 0);
+           background: rgba(0, 0, 0, 0.5);
         }
     </style>
  <style type = "text/css">
@@ -20,21 +28,25 @@
   }
  </style>
 
-<div class='col-sm-6 col-sm-offset-3 ' >
-    <center><h1 style="color:MidnightBlue; font-family:FreeMono, monospace;"><strong>&#9755; About Me &#9754;</strong></h1><hr style="border: 1px outset #191970;"></center>
-    <h3>
-        <body style=”courier;">
-    <p>Hey!</p>
-    <p>7th Blog was built to help people get started with gaining experience in <b>DevOps</b> area generally and much more than this, e.g blogging so they can help fund their lifestyle.
-        I was always into web design and got myself a few freelance jobs setting up blogs and creating content for small local business.</p>
-    <p>My name is Tunahan Yediel, I am 23 years old and live in a town called <i>Istanbul</i> in Turkey, with my family. It’s a beautiful part of the world and a place I can truly call home.</p>
-    <p>I have spent the past few months building blogs and making an income from them so I can enjoy living in the countryside
-        where I can enjoy lots of my favourite hobbies.</p>
-    <p>Hope you enjoy reading my blog!</p>
-    <p>Best.</p></body>
+<br>
+    <div class="jumbotron">
+            <div class="container ">
+                <center><h1 style="color:#FFA500; font-family:FreeMono, monospace;"><strong>&#9755; About Me &#9754;</strong></h1><hr style="border: 1px outset #ffab00;"></center>
+                <h3 style="color:white;">
+                    <body style=”courier;">
+                <p>Hey!</p>
+                <p>7th Blog was built to help people get started with gaining experience in <b>DevOps</b> area generally and much more than this, e.g blogging so they can help fund their lifestyle.
+                    I was always into web design and got myself a few freelance jobs setting up blogs and creating content for small local business.</p>
+                <p>My name is Tunahan Yediel, I am 23 years old and live in a town called <i>Istanbul</i> in Turkey, with my family. It’s a beautiful part of the world and a place I can truly call home.</p>
+                <p>I have spent the past few months building blogs and making an income from them so I can enjoy living in the countryside
+                    where I can enjoy lots of my favourite hobbies.</p>
+                <p>Hope you enjoy reading my blog!</p>
+                <p>Best.</p></body>
 
 
-    </h3>
+                </h3>
+            </div>
     </div>
+
 
 {% endblock content %}

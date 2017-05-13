@@ -9,7 +9,10 @@
 
     <style>
         body{
-            background: url('{% static "img/cream.jpg" %}');
+            background: url('{% static "img/unnamed.jpg" %}') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
             background-size: cover;
         }
     </style>
@@ -18,7 +21,7 @@
     <center>
         <h1 style="color:MidnightBlue; font-family:FreeMono, monospace;">
             <strong>&#9733; WELCOME TO 7TH BLOG &#9733;</strong>
-        </h1><hr style="border: 1px outset #191970;">
+        </h1><hr style="border: 1px outset MidnightBlue;">
     </center>
 
     {% for obj in object_list %}
