@@ -1,6 +1,55 @@
-{% for post in posts %}
-<h2>{{ post.title }}</h2>
-<p>{{ post.timestamp }}</p>
-<p>{{ post.body }}</p>
-{% endfor %}
+{% extends "base.html" %}
+{% load staticfiles %}
 
+{% block content %}
+<br />
+<br />
+<br />
+
+
+    <style>
+        body{
+            background: url('{% static "img/unnamed.jpg" %}') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .jumbotron {
+           background: rgb(0, 0, 0);
+           background: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+
+
+<!--{% for post in posts %}-->
+<!--<h2>{{ post.title }}</h2>-->
+<!--<p>{{ post.timestamp }}</p>-->
+<!--<p>{{ post.body }}</p>-->
+<!--{% endfor %}-->
+<br>
+<div class="jumbotron">
+
+    <div class="container" style="color:#FFA500;">
+<center>
+        <h1>&#9851; Blog Archive</h1>
+        <hr style="border: 1px outset #FFA500;">
+        <!--<p align="right">Posts</p>-->
+
+        <!--<a href="{% url 'myapp:archive' %}">Archive</a>  <br/> -->
+
+    {% for obj in object_list %}
+    <div class="caption">
+        <ul class="nav nav-pills nav-stacked">
+            <h4 style="color:white">- {{ obj.publish }}</h4>
+            <h3><a href='{{ obj.get_absolute_url }}'>&nbsp&nbsp<font style="color:MidnigtBlue"><b>&#8627;{{ obj.title }}</b></font></a></h3>
+        </ul>
+    </div>
+    {% endfor %}
+</center>
+    </div>
+</div>
+
+
+{% endblock content %}

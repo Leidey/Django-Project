@@ -12,15 +12,20 @@
           background: url('{% static "img/unnamed.jpg" %}');
           background-size: cover;
         }
+        .jumbotron {
+           background: rgb(0, 0, 0);
+           background: rgba(0, 0, 0, 0.5);
+        }
     </style>
 
-<div class="container">
-    <div class="row">
-        <div class="jumbotron">
-            <h1>Hey!</h1>
-            <h3>You have successfully signed up.</h3>
-            <h4>Plz <a href="{% url 'login' %}">log in</a> to see content!</h4>
-        </div>
+
+
+<div class="jumbotron">
+    <div class="container">
+            <h1 style="color:#FFA500">Hey!</h1><br>
+            <h3 style="color:white">You have successfully signed up.</h3><br>
+            <h4 style="color:white">Plz <a href="{% url 'login' %}"><font style="color:#FFA500">log in</font></a> to see content!</h4>
     </div>
 </div>
+
 {% endblock %}

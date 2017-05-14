@@ -24,12 +24,19 @@ from django.contrib.auth.views import login
 from django.contrib.auth.views import logout
 
 from django.views.generic import TemplateView
-from accounts.views import UserRegistrationView
 from django.contrib.auth.views import login
 from django.contrib.auth.views import logout
+import accounts.views
+from django.contrib.auth.forms import UserCreationForm
+from django.core.urlresolvers import reverse
+from django.views.decorators.csrf import csrf_protect
+from django.views.generic import CreateView
+from django.views.generic import TemplateView
+from accounts.views import UserRegistrationView
+
 
 import myapp.forms
-from myapp.forms import LoginForm
+# from MyBlog.myapp.forms import LoginForm
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -40,10 +47,16 @@ urlpatterns = [
     #url(r'^login/$', login, {'template_name': 'login.html', 'authentication_form': LoginForm},name='login'),
     # url(r'^logout/$', logout, {'next_page': '/login'}, name='logout'),
     url(r'^$', TemplateView.as_view(template_name='out.html')),
-    url(r'^registered/$', TemplateView.as_view(template_name='success_register.html'), name='home'),
+    url(r'^registered/$', TemplateView.as_view(template_name='success_register.html'), name='registered'),
     url(r'^new-user/$', UserRegistrationView.as_view(), name='user_registration'),
     url(r'^login/$', login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', logout, {'next_page': '/login/'}, name='logout'),
+
+
+
+
+
+
 
     # url(r'^login/$', 'myapp.views.login'),
     # url(r'^logout/$', 'myapp.views.logout'),

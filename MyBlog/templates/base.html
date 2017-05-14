@@ -24,7 +24,7 @@
   z-index: 99;
   border: none;
   outline: none;
-  background-color: #ec5b00;
+  background-color: #ff751a;
   color: white;
   cursor: pointer;
   padding: 15px;
@@ -60,6 +60,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated %}
+                <li><a href="{%url 'myapp:archive' %}" style="color:RoyalBlue;"><b>&#9921; Archive</b></a></li>
                 <li><a href="{%url 'polls:index' %}" style="color:RoyalBlue;"><b>&#9878; Polls</b></a></li>
                 <ul class="navbar-form navbar-right">
                     <div class="dropdown">

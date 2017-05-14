@@ -9,6 +9,7 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.utils import timezone
 from django.db.models import Q
 
+from django.views.generic import TemplateView
 
 from .models import Post
 from .forms import PostForm
@@ -37,8 +38,6 @@ from django.http import HttpResponse
 from .models import Post
 
 
-
-
 # from django.contrib.auth import (
 #     authenticate,
 #     get_user_model,
@@ -46,7 +45,7 @@ from .models import Post
 #     logout,
 #     )
 # from .forms import UserLoginForm
-#
+
 
 def post_create(request):
     if not request.user.is_staff or not request.user.is_superuser:
@@ -82,16 +81,15 @@ def post_detail(request, slug=None):
 
 
 def post_about(request):
-
     return render(request,"post_about.html", {})
 
 def post_contact(request):
     return render(request, "post_contact.html", {})
 
-@login_required
-def home(request):
-    #return render(request, "home.html", {'user': request.user})
-    return render_to_response("home.html", {'user': request.user})
+# @login_required
+# def home(request):
+#     #return render(request, "home.html", {'user': request.user})
+#     return render_to_response("home.html", {'user': request.user})
 
 # @login_required
 # def home(request):
@@ -126,8 +124,6 @@ def login(request):
         "form": form,
     }
     return render(request, "login.html", context)
-
-
 
 # def login(request):
 #     form = RegistrationForm(request.POST)
@@ -291,38 +287,38 @@ def post_delete(request, slug=None):
 #
 #         return render(request, self.template_name, {'form': form})
 
-@csrf_protect
-def registration(request):
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            user = User.objects.create_user(
-                username=form.cleaned_data['username'],
-                password=form.cleaned_data['password1'],
-                email=form.cleaned_data['email']
-            )
-            return HttpResponseRedirect('/register/success/')
-    else:
-        form = RegistrationForm()
-    variables = RequestContext(request, {
-        'form': form
-    })
-
-    return render_to_response(
-        'registration.html',
-        variables,
-    )
-
-
-def register_success(request):
-    return render_to_response(
-        'registration/success.html',
-    )
+# @csrf_protect
+# def registration(request):
+#     if request.method == 'POST':
+#         form = RegistrationForm(request.POST)
+#         if form.is_valid():
+#             user = User.objects.create_user(
+#                 username=form.cleaned_data['username'],
+#                 password=form.cleaned_data['password1'],
+#                 email=form.cleaned_data['email']
+#             )
+#             return HttpResponseRedirect('/register/success/')
+#     else:
+#         form = RegistrationForm()
+#     variables = RequestContext(request, {
+#         'form': form
+#     })
+#
+#     return render_to_response(
+#         'registration.html',
+#         variables,
+#     )
+#
+#
+# def register_success(request):
+#     return render_to_response(
+#         'registration/success.html',
+#     )
 
 #
-def logout_page(request):
-    logout(request)
-    return redirect('/')
+# def logout_page(request):
+#     logout(request)
+#     return redirect('/')
 
 
 # @login_required
@@ -357,10 +353,43 @@ def logout_page(request):
 #         article_list = paginator.page(1)
 #     return article_list
 #
-
+@login_required(login_url='/login/')
 def archive(request):
-    posts = Post.objects.all()
-    t = loader.get_template("archive.html")
-    c = Context({ 'posts': posts })
-    return HttpResponse(t.render(c))
+    # posts = Post.objects.all()
+    # t = loader.get_template("archive.html")
+    # c = Context({ 'posts': posts })
+    # return HttpResponse(t.render(c))
+    today = timezone.now().date()
+    queryset_list = Post.objects.active()  # .order_by("-timestamp")
+
+    if request.user.is_staff or request.user.is_superuser:
+        queryset_list = Post.objects.all()
+
+    query = request.GET.get("q")
+    if query:
+        queryset_list = queryset_list.filter(
+            Q(title__icontains=query) |
+            Q(content__icontains=query) |
+            Q(user__first_name__icontains=query) |
+            Q(user__last_name__icontains=query)
+        ).distinct()
+    paginator = Paginator(queryset_list, 20)  # Show 8 contacts per page
+    page_request_var = "page"
+    page = request.GET.get(page_request_var)
+    try:
+        queryset = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        queryset = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        queryset = paginator.page(paginator.num_pages)
+    context = {
+        "object_list": queryset,
+        "title": "List",
+        "page_request_var": page_request_var,
+        "today": today,
+    }
+    return render(request, "archive.html", context)
+
 
