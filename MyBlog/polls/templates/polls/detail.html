@@ -46,11 +46,30 @@ table#t01 {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
+#t01 td:hover{
+    background-color: orange;
+}
+#t01 td{
+    color: white;
+}
+#t01 td input[type=radio]:checked + label {
+    color: orange;
+}
+#t01 td label {
+    display: inline-block;
+}
+
 .jumbotron {
            background: rgb(0, 0, 0);
            background: rgba(0, 0, 0, 0.5);
         }
 
+a:hover {
+transform: skew(-10deg);
+}
+input:hover {
+transform: skew(-10deg);
+}
 </style>
 
 <div class="jumbotron">
@@ -73,7 +92,7 @@ table#t01 {
 {% for choice in question.choice_set.all %}
     <tr>&nbsp;&nbsp;
       <td><input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-          <label for="choice{{ forloop.counter }}"><font style="color:white;">{{ choice.choice_text }}</font></label></td>
+          <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label></td>
     </tr>
 {% endfor %}
 </table>
