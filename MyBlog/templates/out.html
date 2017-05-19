@@ -2,20 +2,10 @@
 {% load staticfiles %}
 
 {% block content %}
-<br />
-<br />
-<br />
-<br />
+<br /><br /><br /><br />
 
-<!--<div class="container">{% load staticfiles %}-->
-		<!--<img src="{% static 'img/the-bridge.css' %}" class="img-responsive">-->
-<!--</div>-->
-
-
-<!--<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />-->
 <style>
     body{
-
         background-image: url('{% static "img/unnamed.jpg" %}') ;
 
         -webkit-background-size: cover;
@@ -29,17 +19,13 @@
         }
 </style>
 
-
-
 <div class="jumbotron">
     <div class="container">
             <h1 style="color:#FFA500;">Hey!</h1><br>
             <h3 style="color:white">Welcome to my blog &#9819;</h3><br>
-            <h4 style="color:white">Plz <a href="{% url 'login' %}"><font style="color:#FFA500;">log in</font></a> to see content!</h4>
-            <h4 style="color:white">If you are not registered plz sign up from <a href="{% url 'user_registration' %}"><font style="color:#FFA500;"> here.</font></a></h4>
+            <h4 style="color:white">Please <a href="{% url 'login' %}"><font style="color:#FFA500;">log in</font></a> to see content!</h4>
+            <h4 style="color:white">If you are not registered, then please sign up from <a href="{% url 'user_registration' %}"><font style="color:#FFA500;"> here.</font></a></h4>
     </div>
 </div>
-
-
 {% endblock %}
 

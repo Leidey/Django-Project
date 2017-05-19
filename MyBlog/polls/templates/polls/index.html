@@ -3,28 +3,17 @@
 
 <!--<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />-->
 {% block content%}
-<br />
-<br />
-<br />
-<br />
+<br /><br /><br /><br />
 
-
-    <!--<style>-->
-        <!--body{-->
-          <!--background: url('{% static "img/cream.jpg" %}');-->
-          <!--background-size: cover;-->
-        <!--}-->
-    <!--</style>-->
-    <style>
-        body{
-            background: url('{% static "img/unnamed.jpg" %}') no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-    </style>
 <style>
+body{
+    background: url('{% static "img/unnamed.jpg" %}') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 table {
     border-collapse:separate;
     border:solid black 1px;
@@ -59,7 +48,6 @@ table#t01 {
 a:hover {
 transform: skew(-10deg);
 }
-
 </style>
 
 {% if latest_question_list %}
@@ -70,18 +58,15 @@ transform: skew(-10deg);
 </div>
 <br>
 <table style="color:#FFA500; width:100%" id="t01">
-{% for question in latest_question_list %}
-  <tr>
-    <td><center><li><a href="{% url 'polls:detail' question.id %}"><font style="color: white;">{{ question.question_text }}</font></a></li></center></td>
-  </tr>
-{% endfor %}
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+    {% for question in latest_question_list %}
+      <tr>
+        <td><center><li><a href="{% url 'polls:detail' question.id %}"><font style="color: white;">{{ question.question_text }}</font></a></li></center></td>
+      </tr>
+    {% endfor %}
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
 </table>
-
-
 <br>
-
-<center><a class="btn btn-default" href="{% url 'myapp:list' %}">Back to Blog</a></center>
+<center><a class="btn btn-warning" href="{% url 'myapp:list' %}">Back to Blog</a></center>
 {% endblock content%}

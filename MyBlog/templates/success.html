@@ -1,16 +1,10 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-
 {% block content %}
-<br />
-<br />
-<br />
-<br />
+<br /><br /><br /><br />
 <style>
     body{
-
         background-image: url('{% static "img/unnamed.jpg" %}') ;
-
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -21,13 +15,11 @@
            background: rgba(0, 0, 0, 0.5);
         }
 </style>
-
-
 <div class="navbar">
     <div class="row">
         <div class="jumbotron">
             <h1 style="color:#FFA500">Welcome {{ user }}!</h1><br>
-            <!--<h3>You have successfully logged in.</h3>-->
+            <p style="color:white">You have successfully logged in.</p>
             <p style="color:white">You are on your Dashboard.</p>
             <b style="color:white">&#8658;</b>
             <a href="{% url 'myapp:list' %}"><u><b>Move on 7th Blog</b></u></a>

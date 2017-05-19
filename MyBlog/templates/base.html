@@ -1,18 +1,10 @@
 {% load staticfiles %}
-<!--DOCTYPE html -->
-
 
 <html>
 <head>
 <title>{% block head_title %} BLOG 7EL {% endblock head_title %}</title>
-<!-- Latest compiled and minified CSS -->
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-<!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-
 <link rel='stylesheet' href='{% static "css/base.css" %}' />
 
 <style>
@@ -30,33 +22,26 @@
   padding: 15px;
   border-radius: 10px;
 }
-
 #myBtn:hover {
-  background-color: #555;
+  background-color: RoyalBlue;
+}
+li:hover {
+  background-color: #FFC31E;
 }
 </style>
-
-
 </head>
-<body>
 
-<!--<nav class="navbar navbar-inverse" >-->
+<body>
 <nav class="navbar navbar-default navbar-fixed-top" >
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="{% url 'myapp:list' %}" style="color:Orange; font-family:FreeMono, monospace; font-size:18pt; font-style:italic;"><b>BLOG 7EL</b></a>
         </div>
-
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <!--<li><a href="{% url 'myapp:list' %}">Home</a></li>-->
-
-            <!--<p class="navbar-text" style="color:Orange;"><b>BLOG 7EL</b></p>-->
             <li><a href="{% url 'myapp:list' %}" style="color:RoyalBlue;"><b>&#8962; Home</b></a></li>
             <li><a href="{% url 'myapp:about' %}" style="color:RoyalBlue;"><b>&#9832; About</b></a></li>
             <li><a href="{% url 'myapp:contact' %}" style="color:RoyalBlue;"><b>&#8651; Contact Me</b></a></li>
-            <!--<p class="navbar-text"><a href="{% url 'myapp:about' %}"><b>About</b></a></p>-->
-            <!--<p class="navbar-text"><a href="{% url 'myapp:contact' %}"><b>Contact Us</b></a></p>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated %}
@@ -72,14 +57,12 @@
                          </ul>
                     </div>
                 </ul>
-                <!--<li><a href="{% url 'logout' %}" style="color:Orange;"><b>Sign out</b></a></li>-->
                 {% else %}
                 <li><a href="{% url 'login' %}" style="color:Orange;"><b>Sign in</b></a></li>
                 <li><a href="#" style="color:Orange;"><b>|</b></a></li>
                 <li><a href="{% url 'user_registration'%}" style="color:Orange;"><b>Sign up</b></a></li>
                 {% endif %}
             </ul>
-
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                     <input type="text" name="q" class="form-control" style="font-style:italic;" placeholder="Search Posts" value="{{ request.GET.q }}">
@@ -89,7 +72,6 @@
 
         </div>
     </div>
-
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
 var js, fjs = d.getElementsByTagName(s)[0];
@@ -98,10 +80,6 @@ js = d.createElement(s); js.id = id;
 js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
 fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-<!--{% include "messages_display.html" %}-->
 </nav>
 
 {% include "messages_display.html" %}
@@ -110,9 +88,6 @@ fjs.parentNode.insertBefore(js, fjs);
 {% block content %}{% endblock content %}
 </div>
 
-
-
-<!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmu
 </html>BBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
@@ -121,20 +96,11 @@ fjs.parentNode.insertBefore(js, fjs);
         {% block javascript %}
         {% endblock %}
 
-<!--<hr>-->
-<!--{% block footer %}-->
-<!--<div class="container marketing">-->
-<!--<footer>-->
-    <!--<p class="pull-right"><a href="#">Back to Top</a></p>-->
-<!--</footer>-->
-<!--</div>-->
-<!--{% endblock footer %}-->
 <button onclick="topFunction()" id="myBtn" title="Go to top">&#9651;<br>Top</button>
 
 <script>
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
-
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         document.getElementById("myBtn").style.display = "block";
@@ -142,15 +108,11 @@ function scrollFunction() {
         document.getElementById("myBtn").style.display = "none";
     }
 }
-
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
 </script>
-
 </body>
 </html>
-
-

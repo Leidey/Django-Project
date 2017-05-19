@@ -3,16 +3,8 @@
 {% load staticfiles %}
 
 {% block content %}
-<!--<h1>Create New User</h1>-->
-<!--<form action="" method="post">{% csrf_token %}-->
-    <!--{{ form.as_p }}-->
-    <!--<input type="submit" value="Create Account" />-->
-<!--</form>-->
-<br />
-<br />
-<br />
-
-    <style>
+<br /><br /><br />
+<style>
         body{
             background: url('{% static "img/unnamed.jpg" %}') no-repeat center center fixed;
             -webkit-background-size: cover;
@@ -24,45 +16,41 @@
            background: rgb(0, 0, 0);
            background: rgba(0, 0, 0, 0.5);
         }
-    </style>
+</style>
 <br>
 <div class="jumbotron">
     <div class="container" style="width: 500px;">
-                <center><h2 style="color:#FFA500 ;"><strong>&#9834;&#9836; Sign Up &#9836;&#9834;</strong></h2></center>
-                <hr style="border: 1px outset #FFA500;">
+        <center><h2 style="color:#FFA500 ;"><strong>&#9834;&#9836; Sign Up &#9836;&#9834;</strong></h2></center>
+        <hr style="border: 1px outset #FFA500;">
         <center>
-                <div class="login-panel panel panel-success">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Please Create New User</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form action="" method="post">{% csrf_token %}
-
-                            <p class="bs-component">
-                                <table>
-                                    <tr>
-                                        <td>{{ form.username.label_tag }}<hr/></td>
-                                        <td>{{ form.username }} <hr/></td>
-                                    </tr>
-                                    <tr>
-                                        <td>{{ form.password1.label_tag }}<hr/></td>
-                                        <td>{{ form.password1 }}<hr/></td>
-                                    </tr>
-                                    <tr>
-                                        <td>{{ form.password2.label_tag }}</td>
-                                        <td>{{ form.password2 }}</td>
-                                    </tr>
-                                </table>
-
-                            <hr/>
-                            </p>
-                                <input class='btn btn-success' type="submit" value="Create Account" />
-
-                        </form>
-                    </div>
+            <div class="login-panel panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Create New User</h3>
                 </div>
+                <div class="panel-body">
+                    <form action="" method="post">{% csrf_token %}
+                        <p class="bs-component">
+                        <table>
+                            <tr>
+                                <td>{{ form.username.label_tag }}<hr/></td>
+                                <td>{{ form.username }} <hr/></td>
+                            </tr>
+                            <tr>
+                                <td>{{ form.password1.label_tag }}<hr/></td>
+                                <td>{{ form.password1 }}<hr/></td>
+                            </tr>
+                            <tr>
+                                <td>{{ form.password2.label_tag }}</td>
+                                <td>{{ form.password2 }}</td>
+                            </tr>
+                        </table>
+                        <hr/>
+                        </p>
+                        <input class='btn btn-success' type="submit" value="Create Account" />
+                    </form>
+                </div>
+            </div>
         </center>
-                <!--<hr style="border: 1px outset #191970;">-->
     </div>
 </div>
 

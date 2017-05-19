@@ -1,12 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-
 {% block content %}
-<br />
-<br />
-<br />
-<br />
-
+<br /><br /><br /><br />
     <style>
         body{
           background: url('{% static "img/unnamed.jpg" %}');
@@ -17,9 +12,6 @@
            background: rgba(0, 0, 0, 0.5);
         }
     </style>
-
-
-
 <div class="jumbotron">
     <div class="container">
             <h1 style="color:#FFA500">Hey!</h1><br>
@@ -27,5 +19,4 @@
             <h4 style="color:white">Plz <a href="{% url 'login' %}"><font style="color:#FFA500">log in</font></a> to see content!</h4>
     </div>
 </div>
-
 {% endblock %}
