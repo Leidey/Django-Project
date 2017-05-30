@@ -18,12 +18,13 @@
 <div class="navbar">
     <div class="row">
         <div class="jumbotron">
-            <h1 style="color:#FFA500">Welcome {{ user }}!</h1><br>
-            <p style="color:white">You have successfully logged in.</p>
-            <p style="color:white">You are on your Dashboard.</p>
-            <b style="color:white">&#8658;</b>
-            <a href="{% url 'myapp:list' %}"><u><b>Move on 7th Blog</b></u></a>
-        </div>
+            <h1 style="color:#FFA500">Welcome {{ user }}!</h1><br><br>
+            <p style="color:white">You are on your Dashboard.</p><br>
+            <h3><font style="color:white">&#8658;</font>
+                    <a href="{% url 'myapp:list' %}" style="color:white"><u><b>Move on 7th Blog</b></u></a>
+                        <font style="color:white">||</font>
+                            <a href="{%url 'myapp:create'%}" style="color:white"><u>Create Post</u></a>
+            </h3>
     </div>
 </div>
 {% endblock %}
