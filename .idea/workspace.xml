@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b644fd00-8e93-4326-b894-2d4d3eaf3e5c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyBlog/db.sqlite3" afterPath="$PROJECT_DIR$/MyBlog/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyBlog/templates/success.html" afterPath="$PROJECT_DIR$/MyBlog/templates/success.html" />
     </list>
     <ignored path="Django-Project.iws" />
@@ -36,8 +35,8 @@
       <file leaf-file-name="success.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MyBlog/templates/success.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+            <state relative-caret-position="375">
+              <caret line="25" column="102" selection-start-line="25" selection-start-column="102" selection-end-line="25" selection-end-column="102" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#font#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -714,8 +713,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MyBlog/templates/success.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+        <state relative-caret-position="375">
+          <caret line="25" column="102" selection-start-line="25" selection-start-column="102" selection-end-line="25" selection-end-column="102" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#font#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
